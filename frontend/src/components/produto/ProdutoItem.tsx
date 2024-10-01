@@ -9,7 +9,7 @@ export interface ProdutoItemProps {
     produto: Produto
 }
 
-export function ProdutoItem(props: ProdutoItemProps) {
+export default function ProdutoItem(props: ProdutoItemProps) {
     const { produto } = props
     
     return (
