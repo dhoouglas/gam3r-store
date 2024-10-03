@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconShoppingCartPlus } from "@tabler/icons-react"
 import NotaReview from "../shared/NotaReview"
+import useParcelamento from "@/data/hooks/useParcelamento"
+import useCarrinho from "@/data/hooks/useCarrinho"
 
 export interface ProdutoItemProps {
     produto: Produto
@@ -11,6 +13,8 @@ export interface ProdutoItemProps {
 
 export default function ProdutoItem(props: ProdutoItemProps) {
     const { produto } = props
+    const { adicionarItem } = useCarrinho()
+    const parcelamento = useParcelamento(props.produto.precoPromocional)
     
     return (
         
@@ -43,10 +47,10 @@ export default function ProdutoItem(props: ProdutoItemProps) {
                     <span className="text-xl font-semibold text-emerald-400">
                         por {Moeda.formatar(produto.precoPromocional)}
                     </span>
-                    {/* <span className="text-zinc-400 text-xs">
+                    <span className="text-zinc-400 text-xs">
                         até {parcelamento.qtdeParcelas}x de{' '}
                         {Moeda.formatar(parcelamento.valorParcela)}
-                    </span> */}
+                    </span>
                 </div>
                 <button
                     className="
@@ -56,7 +60,7 @@ export default function ProdutoItem(props: ProdutoItemProps) {
                     onClick={(e) => {
                         e.preventDefault()
                         console.log('Adicionar ao carrinho')
-                        // adicionarItem(props.produto)
+                        adicionarItem(props.produto)
                     }}
                 >
                     <IconShoppingCartPlus size={20} />
