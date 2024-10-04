@@ -1,23 +1,21 @@
 import { StyleSheet, SafeAreaView, ScrollView, Pressable, Text } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { ItemCarrinho } from '@gstore/core'
-// import CabecalhoCheckout from '@/src/components/checkout/CabecalhoCheckout'
-// import CarrinhoItem from '../../components/checkout/carrinho/CarrinhoItem'
-// import CarrinhoVazio from '@/src/components/checkout/carrinho/CarrinhoVazio'
+import CabecalhoCheckout from '@/src/components/checkout/CabecalhoCheckout'
+import CarrinhoItem from '../../components/checkout/carrinho/CarrinhoItem'
+import CarrinhoVazio from '@/src/components/checkout/carrinho/CarrinhoVazio'
 import Cores from '@/src/data/constants/Cores'
 import useCarrinho from '@/src/data/hooks/useCarrinho'
 
 export default function Carrinho({ navigation }: any) {
-    // const { itens, qtdeItens, adicionarItem, removerItem, removerProduto } = useCarrinho()
-    const { itens, qtdeItens } = useCarrinho()
-
+    const { itens, qtdeItens, adicionarItem, removerItem, removerProduto } = useCarrinho()
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* <CabecalhoCheckout passo="carrinho" /> */}
+            <CabecalhoCheckout passo="carrinho" />
             <ScrollView contentContainerStyle={{ paddingVertical: 20, width: '100%' }}>
-                {/* {itens.length === 0 && <CarrinhoVazio />} */}
-                {/* {itens.map((item: ItemCarrinho) => (
+                {itens.length === 0 && <CarrinhoVazio />}
+                {itens.map((item: ItemCarrinho) => (
                     <CarrinhoItem
                         key={item.produto.id}
                         item={item}
@@ -25,7 +23,7 @@ export default function Carrinho({ navigation }: any) {
                         removerItem={() => removerItem(item.produto)}
                         removerProduto={() => removerProduto(item.produto)}
                     />
-                ))} */}
+                ))}
             </ScrollView>
             {qtdeItens > 0 && (
                 <Pressable

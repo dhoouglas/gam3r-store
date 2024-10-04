@@ -59,8 +59,8 @@ export default function App() {
                             />
                         </Stack.Navigator>
                     </NavigationContainer>
-                 </ProvedorPagamento>
-             </ProvedorCarrinho>
-         </ProvedorProdutos>
+                </ProvedorPagamento>
+            </ProvedorCarrinho>
+        </ProvedorProdutos>
     )
 }

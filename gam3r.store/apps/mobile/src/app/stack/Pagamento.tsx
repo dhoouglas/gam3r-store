@@ -1,8 +1,8 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native'
-// import CabecalhoCheckout from '@/src/components/checkout/CabecalhoCheckout'
-// import FormularioEntrega from '@/src/components/checkout/pagamento/FormularioEntrega'
-// import ResumoPagamento from '@/src/components/checkout/pagamento/ResumoPagamento'
-// import SelecaoFormaPagamento from '@/src/components/checkout/pagamento/SelecaoFormaPagamento'
+import CabecalhoCheckout from '@/src/components/checkout/CabecalhoCheckout'
+import FormularioEntrega from '@/src/components/checkout/pagamento/FormularioEntrega'
+import ResumoPagamento from '@/src/components/checkout/pagamento/ResumoPagamento'
+import SelecaoFormaPagamento from '@/src/components/checkout/pagamento/SelecaoFormaPagamento'
 import useCarrinho from '@/src/data/hooks/useCarrinho'
 import usePagamento from '@/src/data/hooks/usePagamento'
 
@@ -13,25 +13,25 @@ export default function Pagamento() {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* <CabecalhoCheckout passo="pagamento" /> */}
+            <CabecalhoCheckout passo="pagamento" />
             <ScrollView contentContainerStyle={styles.containerScroll}>
                 <Text style={styles.titulo}>Forma de Pagamento</Text>
-                {/* <SelecaoFormaPagamento
+                <SelecaoFormaPagamento
                     formaPagamento={formaPagamento}
                     formaPagamentoMudou={alterarFormaPagamento}
-                /> */}
+                />
 
                 <Text style={styles.titulo}>Dados da Entrega</Text>
-                {/* <FormularioEntrega entrega={entrega} entregaMudou={alterarEntrega} /> */}
+                <FormularioEntrega entrega={entrega} entregaMudou={alterarEntrega} />
             </ScrollView>
 
-            {/* <ResumoPagamento
+            <ResumoPagamento
                 qtdeItens={qtdeItens}
                 valorTotal={valorTotal}
                 valorTotalCheio={valorTotalCheio}
                 parcelamento={parcelamento}
                 finalizarCompra={finalizarCompra}
-            /> */}
+            />
         </SafeAreaView>
     )
 }
